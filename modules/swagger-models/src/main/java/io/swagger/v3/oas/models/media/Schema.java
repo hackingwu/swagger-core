@@ -1212,7 +1212,7 @@ public class Schema<T> {
      * @return String example
      **/
 
-    public Object getExample() {
+    public T getExample() {
         return example;
     }
 

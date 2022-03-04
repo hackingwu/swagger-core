@@ -50,7 +50,9 @@ public class BinarySchema extends Schema<byte[]> {
     protected byte[] cast(Object value) {
         if (value != null) {
             try {
-                if (value instanceof byte[]) {
+                if (value instanceof String){
+                    return value.toString().getBytes();
+                }else if (value instanceof byte[]) {
                     return (byte[]) value;
                 }
             } catch (Exception e) {

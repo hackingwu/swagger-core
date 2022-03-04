@@ -16,6 +16,7 @@
 
 package io.swagger.v3.oas.models.media;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,7 +51,9 @@ public class ByteArraySchema extends Schema<byte[]> {
     protected byte[] cast(Object value) {
         if (value != null) {
             try {
-                if (value instanceof byte[]) {
+                if (value instanceof String){
+                   return value.toString().getBytes();
+                }else if (value instanceof byte[]) {
                     return (byte[]) value;
                 }
             } catch (Exception e) {
